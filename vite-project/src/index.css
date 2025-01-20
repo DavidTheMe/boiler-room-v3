@@ -1,0 +1,12 @@
+.card-holder{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.activity-card{
+  background-color: #F4F4F4;
+  border-radius: 18px;
+  width: 300px;
+  min-height: 150px;
+  margin: 24px;
+}
