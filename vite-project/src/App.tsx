@@ -1,20 +1,20 @@
 import { useState } from "react";
 import "./App.css";
-import ActivityCard from "./components/ActivityCard.jsx";
-import Form from "./components/Form.jsx";
+import ActivityCard from "./components/ActivityCard.tsx";
+import Form from "./components/Form.tsx";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
     <>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </button> */}
       </div>
       <Form />
-      <div class='card-holder'>
+      <div className='card-holder'>
         <ActivityCard />
         <ActivityCard />
         <ActivityCard />
