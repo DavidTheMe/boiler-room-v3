@@ -1,17 +1,13 @@
-function Form() {
-  let formInfo = {};
+interface FormProps {
+  onFormSubmit: (formInfo: { activityName: string; location: string; description: string; date: string }) => void;
+}
 
+function Form({ onFormSubmit }: FormProps) {
   function GetAndSendData() {
     // Query the elements
-    const activityName = document.querySelector(
-      "[name='activityName']"
-    ) as HTMLInputElement;
-    const location = document.querySelector(
-      "[name='location']"
-    ) as HTMLInputElement;
-    const description = document.querySelector(
-      "[name='description']"
-    ) as HTMLInputElement;
+    const activityName = document.querySelector("[name='activityName']") as HTMLInputElement;
+    const location = document.querySelector("[name='location']") as HTMLInputElement;
+    const description = document.querySelector("[name='description']") as HTMLInputElement;
     const date = document.querySelector("[name='date']") as HTMLInputElement;
 
     // Check if any input is null or empty
@@ -25,19 +21,12 @@ function Form() {
       !description.value ||
       !date.value
     ) {
-      // Handle the error or store the form values
-      const formInfo = [
-        activityName?.value,
-        location?.value,
-        description?.value,
-        date?.value,
-      ];
-      console.log("Form data is incomplete", formInfo);
-      return; // Optional: Return or handle accordingly
+      console.log("Form data is incomplete");
+      return;
     }
 
-    // If everything is valid, you can proceed to send data or further processing
-    formInfo = {
+    // Store as an object if everything is entered
+    const formInfo = {
       activityName: activityName.value,
       location: location.value,
       description: description.value,
@@ -45,7 +34,10 @@ function Form() {
     };
     console.log("Form data is complete", formInfo);
 
-    //Empty inputs
+    // Submit form to the parent
+    onFormSubmit(formInfo);
+
+    // Empty inputs
     activityName.value = "";
     location.value = "";
     description.value = "";
