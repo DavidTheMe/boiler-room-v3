@@ -10,3 +10,7 @@
   min-height: 150px;
   margin: 24px;
 }
+
+.error-text{
+  color: red;
+}
